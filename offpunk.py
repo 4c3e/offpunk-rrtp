@@ -1841,7 +1841,6 @@ CRLF = '\r\n'
 
 # Cheap and cheerful URL detector
 def looks_like_url(word):
-    print(word)
     try:
         if not word.strip():
             return False
