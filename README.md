@@ -1,6 +1,8 @@
-# OFFPUNK
+# THIS IS A FORK OF OFFPUNK, THE OFFICIAL REPO IS AT: https://sr.ht/~lioploum/offpunk/
 
-A command-line and offline-first smolnet browser/feed reader for Gemini, Gopher, Spartan and Web by [Ploum](https://ploum.net).
+A command-line and offline-first smolnet browser/feed reader for Gemini, Gopher, Spartan, RRTP, and Web by [Ploum](https://ploum.net).
+
+This specific fork adds support for browsing Reticulum Resources, using the [Reticulum Resource Transfer Protocol](https://github.com/4c3e/rrtp-spec) (RRTP)
 
 The goal of Offpunk is to be able to synchronise your content once (a day, a week, a month) and then browse/organise it while staying disconnected.
 
