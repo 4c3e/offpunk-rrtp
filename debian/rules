@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+export PYBUILD_DESTDIR_python3=debian/offpunk/
+export LC_ALL=C.UTF-8
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_auto_build:
+	dh_auto_build
+
+override_dh_auto_install:
+	dh_auto_install
+	chmod 755 debian/offpunk/usr/bin/offpunk
+	rm debian/offpunk/usr/bin/offpunk
+	find debian -type d -empty -delete
+
+override_dh_installdocs:
+	dh_installdocs

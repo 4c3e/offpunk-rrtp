@@ -1,0 +1,17 @@
+# OFFPUNK - An Offline-First Browser for the Smolnet
+
+Offpunk is a command-line browser and feed reader dedicated to browsing the Web, Gemini, Gopher and Spartan. Thanks to its permanent cache, it is optimised to be used offline with rare connections but works as well when connected.
+
+Offpunk is optimised for reading and supports readability mode, displaying pictures, subscribing to pages or RSS feeds, managing complex lists of bookmarks. Its integrated help and easy commands make it a perfect tool for command-line novices while power-users will be amazed by its shell integration.
+
+Offpunk is written in Python 3 by Ploum. It aims to be portable and minimise dependencies, making them optional. It supports http/https/gopher/gemini/spartan on both IPv4 and IPv6.
+
+
+=> install.gmi Installing Offpunk and dependencies
+=> tutorial.gmi First steps
+=> config.gmi Configuring Offpunk
+=> offline.gmi Using Offpunk offline
+=> lists.gmi Lists and subscriptions
+=> shell.gmi Shell and OS integrations
+=> dev.gmi Roadmap & Contributions
+

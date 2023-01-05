@@ -1,0 +1,12 @@
+offpunk (1.2.0-2) unstable; urgency=low
+
+  * Fix package mandatory and optional dependencies.
+  * Add project's docs.
+
+ -- Iván Ruvalcaba <ivanruvalcaba@disroot.org>  Mon, 04 Apr 2022 17:33:00 -0500
+
+offpunk (1.2.0-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Iván Ruvalcaba <ivanruvalcaba@disroot.org>  Fri, 01 Apr 2022 12:15:00 -0500

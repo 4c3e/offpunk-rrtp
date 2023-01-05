@@ -1,0 +1,188 @@
+# Offpunk History
+
+## 1.9 - unreleased
+- Default handlers have been removed (not everybody use feh and zathura)
+- Fix a crash when subscribing without GI (reported by sodimel on linuxfr)
+- Fix a crash when trying to access a link without GI (Ben Winston)
+
+## 1.8 - December 11th 2022
+- Official URL is now https://sr.ht/~lioploum/offpunk/
+- SECURITY: Avoid passing improperly-escaped paths to shell (fixes notabug #9) (by Maeve Sproule)
+- Add support for the finger protocol (by Sotiris Papatheodorou)
+- "restricted" mode has been removed because unmaintained (code cleanup)
+- "set accept_bad_ssl_certificates True" allows to lower HTTPS SSL requirements (also with --assume-yes) 
+- Accept "localhost" as a valid URL
+- Better feedback when --sync an URL which is streaming
+- Removed cgi dependency (soon deprecated)
+- Fix: crash with some svg data:image (which are now ignored)
+- Fix images from "full" mode not being downloaded
+- Fix a crash when ls on empty page (thanks Marty Oehme)
+- Fix: A variable was not initialised without python-cryptography
+- Fix: "cp raw" was not accessing the temp_file correctly
+- Fix: ANSI handling off arrows in readline (by Ben Winston)
+
+## 1.7.1 - November 15th 2022
+- Correcting a stupid crash in search (thanks kelbot for the report)
+
+## 1.7 - November 15th 2022
+- New "search" command which uses kennedy.gemi.dev by default.
+- New "wikipedia" command, which uses vault.transjovian.org by default.
+- Aliases "wen", "wfr" and "wes" for Wikipedia in English, French and Spanish.
+- Autocompletion for the list/add/move commands (that’s incredibly useful!)
+- If a link is found in plain text in a gopher/gemini page, it is now
+  added to the list of links for that page. Useful for gopher.
+- Create system lists when needed to avoid failure on clean system
+- Solve a crash when parsing wrong URL (related to bug #9 )
+- Solve a crash when loading webpages with empty links
+- Solve a crash when trying to load a wrong URL into tour
+=> gemini://ploum.be/2022-11-15-offpunk17-sourcehut.gmi
+
+## 1.6 - October 12th 2022
+- Support for base64 encoded pictures in HTML pages (opening them full screen only works offline)
+- A list can be added to a tour with "tour $LIST_NAME".
+- Check for timg > 1.3.2 to avoid dealing with old versions (bug reported by Valvin)
+- Redirect are now honoured also when --sync (bug #15, thanks kelbot)
+- RSS feeds are now automatically downloaded with a webpage (bug #14)
+- Solved the bug where an invalid URL would break correspondance between url and numbers
+- Considers .xml files as feed by default to avoid false-detection as SVG
+- Replaced default libreddit.com redirection to teddit.net (bug #12 by kelbot)
+- The "beta" option has been removed as it is not used (update your config if needed)
+
+## 1.5 - August 4th 2022
+- Removed optional dependency to ripgrep. "grep --color=auto" is good enough.
+- "open url" to open current URL in a browser with xdg-open
+- "redirect" now replaces "set redirects" to improve discoverability
+- "redirect" now allows urls to be blocked. By default, facebook.com and google-analytics.com are blocked
+- Fixed a bug when trying to download base64 image
+=> gemini://rawtext.club/~ploum/2022-08-04-offpunk15.gmi
+
+## 1.4 - April 25th 2022
+- Making python-readability optional
+- Removing "next" and "previous" which are quite confusing and not obvious
+- Archiving now works regardless of the view you are in.
+- Fixing a crash when accessing an empty html page
+- Not trying to display non-image files to avoid errors. (this requires "file")
+
+## 1.3 - April 2th 2022
+- Removed dependency to python-magic. File is now used directly (and should be on every system).
+- Removed dependency to python-editor. If no $VISUAL or $EDITOR, please use "set editor" in Offpunk.
+- Images are now downloaded before displaying an HTML page (can be disabled with "set download_images_first False")
+- Introduced "set redirects" which redirects twitter,youtube,medium,reddit to alternative frontends.
+- New behaviour for "find" (or "/") which is to grep through current page (ripgrep used if detected)
+- Default width set to 80 as many gopherholes and gemini capsules have it hardcoded
+- Streaming URL without valid content-length are now closed after 5Mo of download (thanks to Eoin Carney for reporting the issue)
+- Gif animations are now displayed once when viewed (instead of a still frame).
+- Restored some AV-98 certificate validation code that was lost I don’t know how.
+- Improved clarity of dependencies in "version"
+- Fixed a crash when the cache is already a dir inside a dir.
+- Fixed a crash when manually entering an unknown gopher URL while offline
+- Fixed an error with older less version
+- Fixed bookmarks not being automatically created at first "add"
+- Call to shell commands has been refactorised to improve compatibility with python 3.6 (with testing from Pelle Nilsson)
+- requirements.txt has been contributed by Toby Kurien. Thanks!
+=> gemini://rawtext.club/~ploum/2022-04-02-offpunk13.gmi
+
+## 1.2 - March 24th 2022
+Very experimental release:
+- Completely rewritten the HMTL, Gemtext and Gopher renderer. Tests needed!
+- Removed dependancy to ansiwrap. We don’t use it anymore (which is an important achievement)
+- Lists are now accessed via the protocol "list://".
+- "view full" can now be bookmarked/synchronized as a separate entity.
+- "view normal" introduced to get back to the normal view.
+Small improvements:
+- Limit width of --sync output
+- Solved list names becoming very long in the history
+- Fixed a crash when trying to save a folder
+=> gemini://rawtext.club/~ploum/2022-03-24-ansi_html.gmi
+
+## 1.1 - March 18th 2022
+- Perfect rendering of pictures with chafa 1.8+ and compatible terminal (Kitty)
+- timg is supported as an alternative to chafa (with a little glitch)
+- "cp cache" put the path of the cached content in clipboard
+- "cp url X" will copy the URL of link X (suggested by Eoin Carney)
+- "fold" has been removed as it doesn’t work well and can be replaced with "!fold".
+- Improved clipboard URL detection an fixed crash when binary in clipboard
+- HTML: renderering of <pre> has been improved
+- HTML: links in titles were previously missed
+- Fixed crash when chafa is not installed (Thanks Xavier Hinault for the report)
+- Fixed crash when python-readability not installed (Thanks Nic for the report)
+- Fixed some gif not being displayed
+- Fixed some URL being wronlgy interpreted as IPv6
+
+## 1.0 - March 14th 2022
+- Default width is now the standard 72
+- Content and pictures now centered for more elegant reading
+- "less" has been renamed "view"
+- "view feed" and "view feeds" to see the first/all feeds on a HTML page
+- "view full" has been improved by dropping inline CSS and JS.
+- "up" can now take integer as argument to go up multiple steps.
+- Fixed a crash when accessing links in list (thanks Matthieu Talbot for the report)
+- Fixed a crash in "info" due to a typo in a variable name rarely accessed.
+- Removed dependancy to python-xdg by implementing the logic (which saved lines of code!)
+- python-pil is only needed if chafa < 1.10
+=> gemini://rawtext.club/~ploum/2022-03-14-offpunk_and_cyberpunk.gmi
+
+## 0.9 - March 05th 2022
+- Initial Spartan protocol support
+- Http links with content above 20Mo are not downloaded during sync (except when explicitely requested)
+- Improving subscriptions with more feedback and better detection
+- Avoid deprecated SSL methods (thanks Phoebos for the report)
+- Links in to_fetch are fetched, no matter the cache
+- Fixed multiple crashes
+=> gemini://rawtext.club/~ploum/2022-03-05-offpunk09.gmi
+
+## 0.4 - Feb 21st 2022
+UPGRADE: Users who subscribed to pages before 0.4 should run once the command "list subscribe subscribed". Without that, the subscribed list will be seen as a normal list by sync.
+- New list command : "list freeze" and "list suscribe"
+- Pictures are now displayed directely in terminal (suggested by kelbot)
+- "open" command to open current page/image/file with external handler.
+- "set width XX" now works to set the max width. If smaller, terminal width is used (thanks kelbot for reporting the bug)
+- RSS feeds are now rendered as Gemlogs to improve consistency while browsing
+- "subscribe" will detect feeds in html pages if any
+- "less" will restore previous position in a page (requires less 572+)
+- Improved syncing performances and multiple bug/crash fixes.
+- "version" will now display info about your system installation
+- "info" command will display technical information about current page
+- "sync" allows you to do the sync from within Offpunk
+=> gemini://rawtext.club/~ploum/2022-02-21-offpunk04.gmi
+
+## 0.3 - Feb 11th 2022
+New Features:
+- Gopher supported natively (early version, might have many bugs)
+- support for RSS and Atom feed (you can subscribe to them)
+- "less full" allows to see the full html page instead of only the article view
+ 	(also works with feeds to see descriptions of each post instead of a simple list)
+- Option --depth to customize your sync. Be warned, more than 1 is crazy.
+- Option --disable-http to allows deep syncing of gemini-only ressources
+- Vastly improved HTML rendering with support for images (you need the binary "chafa" on your system)
+Other Small Improvements:
+- Disabled https_everywhere by default (caching problems and some websites not supporting it)
+- Modified --sync logic to make it more intuitive (thanks Bjorn Westergard)
+- Caching more problems to avoid refetch
+- Offpunk has now an User-Agent when http browsing to avoid being blocked as a bot
+- Changed XDG logic to improve compatibility (thanks Klaus Alexander)
+=> gemini://rawtext.club/~ploum/2022-02-11-offpunk03.gmi
+
+## 0.2 - Jan 31st 2022
+- config directories have been moved to follow the XDG specifications
+- support for http, https and mailto links (https_everywhere is enabled by default, see "set" command)
+- support for HTML pages, rendered as articles
+- Mutiple bookmarks lists and management of them through commands list, add, archive, move
+- Subscriptions have been moved to a separate list with the subscribe command
+- History is persistent and saved to disk
+- Copy command allows to copy content or url into buffer
+- Search as been renamed find, in the hope of implementing a real search in the future
+- --fetch-later allows to mark a content to be fetched from other software.
+- --assume-yes allows to choose the default answer to certificates warnings during --sync.
+=> gemini://rawtext.club/~ploum/2022-01-31-offpunk02.gmi Announcing Offpunk 0.2
+
+## 0.1 - Jan 3rd 2022
+- initial release as an independant software from AV-98 (thanks solarpunk)
+- Including contributions published by Bjorn on Notabug (thanks ew0k)
+- less used by default for all content with custom options
+- online/offline mode
+- content is cached for offline use
+- bookmarks are cached and subscribed through the --sync option
+- tour is persistent and saved to disk
+- reload while offline mark the content to be fetched during next --sync
+=> gemini://rawtext.club/~ploum/2022-01-03-offpunk.gmi Announce of Offpunk 0.1

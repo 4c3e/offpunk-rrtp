@@ -1,0 +1,29 @@
+Source: offpunk
+Section: net
+Priority: optional
+Maintainer: Iván Ruvalcaba <ivanruvalcaba@disroot.org>
+Build-Depends:
+ debhelper-compat (= 13),
+ python3-all,
+Build-Depends-Indep:
+ dh-python,
+Rules-Requires-Root: no
+Standards-Version: 4.6.0
+Homepage: https://sr.ht/~lioploum/offpunk/
+
+Package: offpunk
+Architecture: all
+Depends:
+ less,
+ file,
+ xdg-utils,
+ python3-cryptography,
+ python3-feedparser,
+ python3-requests,
+ python3-bs4,
+ ${misc:Depends},
+ ${python3:Depends}
+Suggests: xsel, python3-setproctitle, python3-readability, chafa (>= 1.10.0), python3-pil
+Description: Offpunk is an offline-first browser for the smolnet
+ A command-line and offline-first smolnet browser/feed reader for Gemini,
+ Gopher, Spartan and Web.
